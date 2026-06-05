@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 <title>∞ Endless Run</title>
 <link rel="stylesheet" href="runner.css"/>
 </head>
@@ -23,7 +23,6 @@
 
   <div id="effects-bar"></div>
 
-  <!-- Start screen -->
   <div class="overlay" id="ov-start">
     <div class="overlay-title" style="font-size:40px;color:var(--orange);text-shadow:0 0 30px #ff6b3577;">∞</div>
     <div class="overlay-title" style="font-size:20px;color:var(--orange);">ENDLESS RUN</div>
@@ -35,14 +34,12 @@
     <button class="btn" onclick="startGame()">START RUNNING</button>
   </div>
 
-  <!-- Pause screen -->
   <div class="overlay hidden" id="ov-pause">
     <div class="overlay-title" style="font-size:30px;color:var(--yellow);">PAUSED</div>
     <div class="overlay-sub" style="margin-bottom:20px;">Game is paused</div>
     <button class="btn" onclick="resumeGame()">RESUME</button>
   </div>
 
-  <!-- Game over screen -->
   <div class="overlay hidden" id="ov-over">
     <div class="overlay-title" style="font-size:28px;color:var(--red);text-shadow:0 0 20px #ef233c66;">GAME OVER</div>
     <div class="stats-row" id="over-stats"></div>
@@ -51,9 +48,9 @@
 </div>
 
 <div id="controls">
-  <button class="ctrl-btn" id="btn-jump" ontouchstart="doJump()" onmousedown="doJump()">↑ JUMP</button>
-  <button class="ctrl-btn" id="btn-slide" ontouchstart="doSlide()" onmousedown="doSlide()">↓ SLIDE</button>
-  <button class="ctrl-btn" onclick="togglePause()">⏸ PAUSE</button>
+  <button class="ctrl-btn" id="btn-jump">↑ JUMP</button>
+  <button class="ctrl-btn" id="btn-slide">↓ SLIDE</button>
+  <button class="ctrl-btn" id="btn-pause">⏸ PAUSE</button>
 </div>
 
 <div id="legend">
@@ -63,7 +60,6 @@
   <span class="legend-item" style="color:#a78bfa">⧗ — Slow-Mo</span>
 </div>
 
-
-<script src = "runner.js"></script>
+<script src="runner.js"></script>
 </body>
 </html>
