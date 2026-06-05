@@ -1,0 +1,190 @@
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@700;900&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0e17;
+    --surface: #111827;
+    --border: #1f2937;
+    --orange: #ff6b35;
+    --yellow: #ffd166;
+    --green: #06d6a0;
+    --blue: #38bdf8;
+    --purple: #a78bfa;
+    --red: #ef233c;
+    --muted: #4b5563;
+    --text: #d1d5db;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Share Tech Mono', monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+    user-select: none;
+  }
+
+  #title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(18px, 4vw, 32px);
+    font-weight: 900;
+    letter-spacing: 8px;
+    color: var(--orange);
+    text-shadow: 0 0 20px #ff6b3566, 0 0 50px #ff6b3322;
+    margin-bottom: 4px;
+  }
+
+  #subtitle {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+  }
+
+  #hud {
+    width: 620px;
+    max-width: 96vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    padding: 7px 16px;
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+
+  .hud-item span { color: var(--muted); }
+  .hud-item b { color: var(--yellow); }
+
+  #game-wrap {
+    position: relative;
+    width: 620px;
+    max-width: 96vw;
+  }
+
+  #canvas {
+    display: block;
+    width: 100%;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    cursor: pointer;
+  }
+
+  #effects-bar {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    display: flex;
+    gap: 6px;
+  }
+
+  .effect-badge {
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border: 1px solid;
+    font-family: 'Share Tech Mono', monospace;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(10,14,23,0.88);
+    backdrop-filter: blur(3px);
+  }
+
+  .overlay-title {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    letter-spacing: 6px;
+    margin-bottom: 10px;
+  }
+
+  .overlay-sub {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 3px;
+    margin-bottom: 22px;
+    text-align: center;
+    line-height: 2;
+  }
+
+  .stats-row {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .stat-box { text-align: center; }
+  .stat-label { font-size: 9px; color: var(--muted); letter-spacing: 2px; }
+  .stat-val { font-family: 'Orbitron', sans-serif; font-size: 22px; font-weight: 700; }
+
+  .btn {
+    background: transparent;
+    border: 2px solid var(--orange);
+    color: var(--orange);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    padding: 10px 32px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 0 16px #ff6b3533;
+    transition: background 0.15s, box-shadow 0.15s;
+  }
+  .btn:hover { background: #ff6b3522; box-shadow: 0 0 28px #ff6b3566; }
+
+  #controls {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .ctrl-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding: 8px 18px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .ctrl-btn:hover { border-color: var(--orange); color: var(--orange); }
+  .ctrl-btn:active { background: #ff6b3511; }
+
+  #legend {
+    display: flex;
+    gap: 16px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .legend-item { font-size: 10px; letter-spacing: 1px; opacity: 0.75; }
+
+  .hidden { display: none !important; }
+
