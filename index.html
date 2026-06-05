@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"/>
 <title>∞ Endless Run</title>
 <link rel="stylesheet" href="runner.css"/>
 </head>
 <body>
 
-<div id="title">∞ ENDLESS RUN</div>
-<div id="subtitle">SPACE / ↑ JUMP &nbsp;·&nbsp; ↓ SLIDE &nbsp;·&nbsp; P PAUSE</div>
+<canvas id="canvas"></canvas>
 
 <div id="hud">
   <div class="hud-item"><span>SCORE </span><b id="h-score">0</b></div>
@@ -18,46 +17,34 @@
   <div class="hud-item"><span>BEST </span><b id="h-best">0</b></div>
 </div>
 
-<div id="game-wrap">
-  <canvas id="canvas" width="620" height="300"></canvas>
+<div id="effects-bar"></div>
 
-  <div id="effects-bar"></div>
-
-  <div class="overlay" id="ov-start">
-    <div class="overlay-title" style="font-size:40px;color:var(--orange);text-shadow:0 0 30px #ff6b3577;">∞</div>
-    <div class="overlay-title" style="font-size:20px;color:var(--orange);">ENDLESS RUN</div>
-    <div class="overlay-sub">
-      SPACE / ↑ &nbsp;—&nbsp; JUMP (double jump!)<br>
-      ↓ &nbsp;—&nbsp; SLIDE UNDER OBSTACLES<br>
-      P &nbsp;—&nbsp; PAUSE
-    </div>
-    <button class="btn" onclick="startGame()">START RUNNING</button>
+<div class="overlay" id="ov-start">
+  <div class="overlay-title" style="font-size:40px;color:var(--orange);text-shadow:0 0 30px #ff6b3577;">∞</div>
+  <div class="overlay-title" style="font-size:20px;color:var(--orange);">ENDLESS RUN</div>
+  <div class="overlay-sub">
+    SPACE / ↑ &nbsp;—&nbsp; JUMP (double jump!)<br>
+    ↓ &nbsp;—&nbsp; SLIDE UNDER OBSTACLES<br>
+    P &nbsp;—&nbsp; PAUSE
   </div>
-
-  <div class="overlay hidden" id="ov-pause">
-    <div class="overlay-title" style="font-size:30px;color:var(--yellow);">PAUSED</div>
-    <div class="overlay-sub" style="margin-bottom:20px;">Game is paused</div>
-    <button class="btn" onclick="resumeGame()">RESUME</button>
-  </div>
-
-  <div class="overlay hidden" id="ov-over">
-    <div class="overlay-title" style="font-size:28px;color:var(--red);text-shadow:0 0 20px #ef233c66;">GAME OVER</div>
-    <div class="stats-row" id="over-stats"></div>
-    <button class="btn" onclick="startGame()">TRY AGAIN</button>
-  </div>
+  <button class="btn" onclick="startGame()">START RUNNING</button>
 </div>
 
-<div id="controls">
-  <button class="ctrl-btn" id="btn-jump">↑ JUMP</button>
-  <button class="ctrl-btn" id="btn-slide">↓ SLIDE</button>
-  <button class="ctrl-btn" id="btn-pause">⏸ PAUSE</button>
+<div class="overlay hidden" id="ov-pause">
+  <div class="overlay-title" style="font-size:30px;color:var(--yellow);">PAUSED</div>
+  <div class="overlay-sub" style="margin-bottom:20px;">Game is paused</div>
+  <button class="btn" onclick="resumeGame()">RESUME</button>
 </div>
 
-<div id="legend">
-  <span class="legend-item" style="color:#06d6a0">M — Magnet</span>
-  <span class="legend-item" style="color:#38bdf8">S — Shield</span>
-  <span class="legend-item" style="color:#ef233c">B — Boost</span>
-  <span class="legend-item" style="color:#a78bfa">⧗ — Slow-Mo</span>
+<div class="overlay hidden" id="ov-over">
+  <div class="overlay-title" style="font-size:28px;color:var(--red);text-shadow:0 0 20px #ef233c66;">GAME OVER</div>
+  <div class="stats-row" id="over-stats"></div>
+  <button class="btn" onclick="startGame()">TRY AGAIN</button>
+</div>
+
+<div id="mobile-zones">
+  <div id="zone-jump"></div>
+  <div id="zone-slide"></div>
 </div>
 
 <script src="runner.js"></script>
