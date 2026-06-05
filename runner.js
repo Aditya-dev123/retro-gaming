@@ -44,6 +44,21 @@ document.addEventListener('keydown', e => {
   if(['ArrowDown','KeyS'].includes(e.code)){ e.preventDefault(); doSlide(); }
   if(e.code==='KeyP'||e.code==='Escape') togglePause();
 });
+const jumpBtn = document.getElementById('btn-jump');
+const slideBtn = document.getElementById('btn-slide');
+const pauseBtn = document.getElementById('btn-pause');
+if(jumpBtn) {
+  jumpBtn.addEventListener('touchstart', e => { e.preventDefault(); doJump(); }, {passive: false});
+  jumpBtn.addEventListener('mousedown', e => { e.preventDefault(); doJump(); });
+}
+if(slideBtn) {
+  slideBtn.addEventListener('touchstart', e => { e.preventDefault(); doSlide(); }, {passive: false});
+  slideBtn.addEventListener('mousedown', e => { e.preventDefault(); doSlide(); });
+}
+if(pauseBtn) {
+  pauseBtn.addEventListener('touchstart', e => { e.preventDefault(); togglePause(); }, {passive: false});
+  pauseBtn.addEventListener('mousedown', e => { e.preventDefault(); togglePause(); });
+}
 function doJump(){
   if(!g.running||g.paused||g.over) return;
   const p = g.player;
